@@ -22,11 +22,12 @@ class SnailShellPattern implements ISnailShellPattern {
       int[] snail_shell = new int[matrix.length * matrix.length];
       int shell_piece = 0, row = 0, column = 0;
 
-      while(shell_piece < matrix.length * matrix.length) {
+      // Build shell
+      while(shell_piece < snail_shell.length) {
         // Add shell piece
         snail_shell[shell_piece++] = matrix[row][column];
 
-        // Update traverse parameters
+        // Update matrix traverse parameters
         if (horizontal_increment == vertical_increment) { // Case movement is horizontal
 
           if(horizontal_increment > 0) {  // Case movement is left to right
