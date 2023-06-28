@@ -16,8 +16,10 @@ class SnailShellPattern implements ISnailShellPattern {
    */
   public Future<int[]> getSnailShell(int[][] matrix) {
     return executor.submit(() -> {
+
       // Matrix traverse parameters
       int left = 0, top = 0, right = matrix.length, bottom = matrix.length, horizontal_increment = 1, vertical_increment = 1;
+
       // Shell parameters
       int[] snail_shell = new int[matrix.length * matrix.length];
       int shell_piece = 0, row = 0, column = 0;
@@ -63,9 +65,9 @@ class SnailShellPattern implements ISnailShellPattern {
           column += horizontal_increment;
 
         }
-    }
+      }
 
-    return snail_shell;
+      return snail_shell;
     });
   }
 }
