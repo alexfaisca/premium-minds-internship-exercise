@@ -18,12 +18,11 @@ public class SnailShellPatternTest {
 
   /**
    * The corresponding implementations to test.
-   *
    * If you want, you can make others :)
    *
    */
   public SnailShellPatternTest() {
-  };
+  }
 
   @Test
   public void ScreenLockinPatternTestFirst3Length2Test()
@@ -32,6 +31,24 @@ public class SnailShellPatternTest {
     Future<int[]> count = new SnailShellPattern().getSnailShell(matrix);
     int[] result = count.get(10, TimeUnit.SECONDS);
     int[] expected = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-    assertArrayEquals(result, expected);
+    assertArrayEquals(expected, result);
+  }
+  @Test
+  public void ScreenLockinPatternTestFirst3Length2Test2()
+      throws InterruptedException, ExecutionException, TimeoutException {
+    int[][] matrix = { { 1, 1, 2, 3 }, { 8, 1, 9, 4 }, { 7, 1, 6, 5 }, { 7, 1, 6, 5 } };
+    Future<int[]> count = new SnailShellPattern().getSnailShell(matrix);
+    int[] result = count.get(10, TimeUnit.SECONDS);
+    int[] expected = { 1, 1, 2, 3, 4, 5, 5, 6, 1, 7, 7, 8, 1, 9, 6, 1 };
+    assertArrayEquals(expected, result);
+  }
+  @Test
+  public void ScreenLockinPatternTestFirst3Length2Test3()
+      throws InterruptedException, ExecutionException, TimeoutException {
+    int[][] matrix = {};
+    Future<int[]> count = new SnailShellPattern().getSnailShell(matrix);
+    int[] result = count.get(10, TimeUnit.SECONDS);
+    int[] expected = { };
+    assertArrayEquals(expected, result);
   }
 }
