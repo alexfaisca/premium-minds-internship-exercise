@@ -30,12 +30,12 @@ class SnailShellPattern implements ISnailShellPattern {
         if (horizontal_increment == vertical_increment) { // Case movement is horizontal
 
           if(horizontal_increment > 0) {  // Case movement is left to right
-            if (column < right - 1) { // Check if right boundary reached
+            if (column < right - 1) { // Keep current direction if right boundary not reached
               column += horizontal_increment;
               continue;
             }
             top++; // Right boundary reached: constrict top boundary
-          } else if (column > left) { // Check if left boundary reached (movement is right to left)
+          } else if (column > left) { // Keep current direction if left boundary not reached
             column += horizontal_increment;
             continue;
           } else bottom--; // Left boundary reached: constrict bottom boundary
@@ -47,12 +47,12 @@ class SnailShellPattern implements ISnailShellPattern {
         } else { // Case movement is vertical
 
           if (vertical_increment > 0) { // Case movement is top to bottom
-            if (row < bottom - 1) { // Check if bottom boundary reached
+            if (row < bottom - 1) { // Keep current direction if bottom boundary not reached
               row += vertical_increment;
               continue;
             }
             right--; // Bottom boundary reached: constrict right boundary
-          } else if (row > top) { // Check if top boundary reached (movement is bottom to top)
+          } else if (row > top) { // Keep current direction if top boundary not reached
             row += vertical_increment;
             continue;
           } else left++; // Top boundary reached: constrict left boundary
